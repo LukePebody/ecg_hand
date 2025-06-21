@@ -177,6 +177,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.0"
+  ecg_protocol:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "3d57eaf22eaddcc3da329ede2985e350b7ea4e8c"
+      url: "https://github.com/LukePebody/ecg_protocol.git"
+    source: git
+    version: "1.0.0"
   fake_async:
     dependency: transitive
     description:

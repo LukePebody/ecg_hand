@@ -27,6 +27,11 @@ dependencies:
   
   # Path handling
   path_provider: ^2.1.2
+  
+  # Shared protocol for ECG applications
+  ecg_protocol:
+    git:
+      url: https://github.com/LukePebody/ecg_protocol.git
 
 dev_dependencies:
   flutter_test:
