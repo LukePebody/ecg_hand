@@ -8,7 +8,8 @@ import 'package:ecg_protocol/ecg_protocol.dart';
 final _logger = Logger('ClientNetworkService');
 
 class ClientNetworkService {
-  static final ClientNetworkService _instance = ClientNetworkService._internal();
+  static final ClientNetworkService _instance =
+      ClientNetworkService._internal();
   factory ClientNetworkService() => _instance;
   ClientNetworkService._internal();
 
@@ -25,7 +26,7 @@ class ClientNetworkService {
   /// Connect to a hosted game using a 6-digit code
   Future<bool> connectToGame(String hostCode, {String? serverHost}) async {
     serverHost ??= 'localhost:8080';
-    
+
     try {
       _logger.info('Attempting to connect to game with code: $hostCode');
 
@@ -45,7 +46,9 @@ class ClientNetworkService {
       final websocketPort = responseData['websocket_port'] as int;
 
       // Connect to WebSocket
-      final wsUri = Uri.parse('ws://${serverHost.split(':')[0]}:$websocketPort/connect');
+      final wsUri = Uri.parse(
+        'ws://${serverHost.split(':')[0]}:$websocketPort/connect',
+      );
       _channel = WebSocketChannel.connect(wsUri);
 
       // Listen for messages
@@ -103,7 +106,7 @@ class ClientNetworkService {
     try {
       final messageData = jsonDecode(rawMessage as String);
       final gameMessage = GameMessage.fromJson(messageData);
-      
+
       _logger.info('Received ${gameMessage.type} message from server');
       _messageController.add(gameMessage);
     } catch (e) {
